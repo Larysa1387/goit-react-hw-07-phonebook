@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
 import { /*createAction,*/ createReducer } from "@reduxjs/toolkit";
 import { addContact, deleteContact, changeFilter } from "./contacts-actions";
-// import { ADD_CONTACT, DEL_CONTACT, CHANGE_FILTER, } from "./contactsActions-types";
 
 // const initialState = {
 //   contacts: [],
