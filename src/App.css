@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  background-color: #ebe5be9d;
+  width: 380px;
+  margin: 10px auto;
+  border: 1px solid #282c34a8;
+}
+
+.App-header {
+  margin: 0;
+  background-color: #282c34a8;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(12px + 2vmin);
+  color: white;
+}
+.plug-paragraph {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  color: rgb(59, 11, 73);
+  border-bottom: 3px solid rgba(131, 30, 131, 0.712);
+  font-weight: 600;
+  font-size: 24px;
+}

@@ -1,0 +1,22 @@
+.inputLabel {
+  display: block;
+  font-size: 18px;
+  padding: 5px;
+  text-align: left;
+  color: #ffff;
+  background-color: #282c3452;
+  border-radius: 2px;
+}
+
+.inputFilter {
+  width: 100%;
+  padding: 10px 10px;
+  border: 1px solid rgba(131, 30, 131, 0.712);
+  border-radius: 2px;
+  /* background-color: inherit; */
+  background-color: #cebac811;
+  color: rgb(59, 11, 73);
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+}
