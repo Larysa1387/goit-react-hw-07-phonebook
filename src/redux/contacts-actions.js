@@ -1,6 +1,13 @@
 import { createAction } from "@reduxjs/toolkit";
 import shortid from "shortid";
-// import { ADD_CONTACT, DEL_CONTACT, CHANGE_FILTER, } from "./contactsActions-types";
+
+export const fetchContactsRequest = createAction(
+  "contacts/fetchContactsRequest"
+);
+export const fetchContactsSuccess = createAction(
+  "contacts/fetchContactsSuccess"
+);
+export const fetchContactsError = createAction("contacts/fetchContactsError");
 
 export const addContact = createAction(
   "contacts/Add",
@@ -17,24 +24,3 @@ export const addContact = createAction(
 );
 export const deleteContact = createAction("contacts/Delete");
 export const changeFilter = createAction("contacts/Filter");
-
-//Было
-// export const addContact = ({ name, number, contactType }) => ({
-//   type: ADD_CONTACT,
-//   payload: {
-//     id: shortid.generate(),
-//     name,
-//     number,
-//     contactType,
-//   },
-// });
-
-// export const deleteContact = contactId => ({
-//   type: DEL_CONTACT,
-//   payload: contactId,
-// });
-
-// export const changeFilter = value => ({
-//   type: CHANGE_FILTER,
-//   payload: value,
-// });

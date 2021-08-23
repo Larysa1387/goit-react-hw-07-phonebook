@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { connect } from "react-redux";
+
 // import PropTypes from "prop-types";
 
-import { getVisibleContacts } from "../../redux/contacts-selectors";
-import { deleteContact } from "../../redux/contacts-actions";
+import { getVisibleContacts } from "redux/contacts-selectors";
+import { deleteContact } from "redux/contacts-actions";
+import * as contactsOperations from "redux/contacts-operations";
 import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
-// console.log(getVisibleContacts());
-/*{ contacts, onDeleteContact }*/
 
 const ContactList = () => {
   const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
 
   const onDeleteContact = id => dispatch(deleteContact(id));
   return (
