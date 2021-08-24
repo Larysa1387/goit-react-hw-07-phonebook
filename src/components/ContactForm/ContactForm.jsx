@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { connect } from "react-redux";
+
 import { getContacts } from "../../redux/contacts-selectors";
-import { addContact } from "../../redux/contacts-actions";
-// import store from "../../redux/store";
+// import { addContact } from "../../redux/contacts-actions";
+import * as contactsOperations from "redux/contacts-operations";
 import PropTypes from "prop-types";
 import shortid from "shortid";
 import s from "./ContactForm.module.css";
 
-// { contacts, onSubmit }
 function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [contactType, setContactType] = useState("home");
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(contactsOperations.fetchContacts());
+  // }, [dispatch]);
 
   const contactInputId = shortid.generate();
   const numberInputId = shortid.generate();
@@ -25,7 +28,7 @@ function ContactForm() {
       alert(`${name} is already exists in contacts`);
       return;
     }
-    dispatch(addContact({ name, number, contactType }));
+    dispatch(contactsOperations.fetchAddContact({ name, number, contactType }));
     reset();
   };
 

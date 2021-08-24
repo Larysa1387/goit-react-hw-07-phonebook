@@ -6,18 +6,19 @@ async function fetchContacts() {
   const { data } = await axios.get(`${BASE_URL}`);
   return data;
 }
-async function addContact(name, number, contactType) {
+
+async function fetchAddContact(name, number, contactType) {
   const { data } = await axios.post(`${BASE_URL}`, {
-    name: `${name}`,
-    number: `${number}`,
-    contactType: `${contactType}`,
+    name,
+    number,
+    contactType,
   });
   return data;
 }
 
-async function deleteContact(id) {
+async function fetchDeleteContact(id) {
   await axios.delete(`${BASE_URL}/${id}`);
   return id;
 }
 
-export { fetchContacts, addContact, deleteContact };
+export { fetchContacts, fetchAddContact, fetchDeleteContact };

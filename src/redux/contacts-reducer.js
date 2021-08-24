@@ -1,14 +1,18 @@
 import { combineReducers } from "redux";
 import { /*createAction,*/ createReducer } from "@reduxjs/toolkit";
 import {
-  addContact,
-  deleteContact,
+  // addContact,
+  // deleteContact,
   changeFilter,
   // fetchContactsRequest,
   // fetchContactsSuccess,
   // fetchContactsError,
 } from "./contacts-actions";
-import { fetchContacts } from "./contacts-operations";
+import {
+  fetchContacts,
+  fetchAddContact,
+  fetchDeleteContact,
+} from "./contacts-operations";
 
 // const initialState = {
 //   contacts: [],
@@ -44,8 +48,8 @@ import { fetchContacts } from "./contacts-operations";
 
 const contactsArrReducer = createReducer([], {
   [fetchContacts.fulfilled]: (_, action) => action.payload,
-  [addContact]: (state, action) => [...state, action.payload],
-  [deleteContact]: (state, action) =>
+  [fetchAddContact.fulfilled]: (state, action) => [...state, action.payload],
+  [fetchDeleteContact.fulfilled]: (state, action) =>
     state.filter(({ id }) => id !== action.payload),
 });
 

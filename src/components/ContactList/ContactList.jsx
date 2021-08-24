@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 // import PropTypes from "prop-types";
 
 import { getVisibleContacts } from "redux/contacts-selectors";
-import { deleteContact } from "redux/contacts-actions";
+// import { deleteContact } from "redux/contacts-actions";
 import * as contactsOperations from "redux/contacts-operations";
+
 import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
 
@@ -16,7 +17,8 @@ const ContactList = () => {
     dispatch(contactsOperations.fetchContacts());
   }, [dispatch]);
 
-  const onDeleteContact = id => dispatch(deleteContact(id));
+  const onDeleteContact = id =>
+    dispatch(contactsOperations.fetchDeleteContact(id));
   return (
     <>
       {contacts.length !== 0 ? (
