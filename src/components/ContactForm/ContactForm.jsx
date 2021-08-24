@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getContacts } from "../../redux/contacts-selectors";
-// import { addContact } from "../../redux/contacts-actions";
+import { getContacts, getLoader } from "redux/contacts-selectors";
 import * as contactsOperations from "redux/contacts-operations";
 import PropTypes from "prop-types";
 import shortid from "shortid";
@@ -13,11 +12,8 @@ function ContactForm() {
   const [number, setNumber] = useState("");
   const [contactType, setContactType] = useState("home");
   const contacts = useSelector(getContacts);
+  const loader = useSelector(getLoader);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(contactsOperations.fetchContacts());
-  // }, [dispatch]);
 
   const contactInputId = shortid.generate();
   const numberInputId = shortid.generate();
@@ -126,6 +122,7 @@ function ContactForm() {
       <button className={s.btnSubmit} type="submit" disabled={!name}>
         Add contact
       </button>
+      {loader && <h2>Loading...</h2>}
     </form>
   );
 }
@@ -134,13 +131,5 @@ ContactForm.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.shape(PropTypes.string.isRequired)),
   // onSubmit: PropTypes.func.isRequired,
 };
-
-// const mapStateToProps = state => {
-//   return { contacts: state.contacts.contactsArr };
-// };
-
-// const mapDispatchToProps = dispatch => ({
-//   onSubmit: contact => dispatch(addContact(contact)),
-// });
 
 export default ContactForm;
